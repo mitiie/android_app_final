@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="143dp"
+    android:layout_height="175dp"
+    android:layout_margin="8dp"
+    android:background="@drawable/edittext_background"
+    android:padding="8dp">
+
+    <!-- Ảnh đồ uống -->
+    <ImageView
+        android:id="@+id/imgDrink"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_product1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintDimensionRatio="4:3" />
+
+    <!-- Nút trái tim -->
+    <ImageButton
+        android:id="@+id/btnFavorite"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_favorite"
+        app:layout_constraintEnd_toEndOf="@id/imgDrink"
+        app:layout_constraintTop_toTopOf="@id/imgDrink" />
+
+    <!-- Tên đồ uống -->
+    <TextView
+        android:id="@+id/tvDrinkName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cappuccino"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@id/imgDrink"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Dãy kích cỡ S M L -->
+    <LinearLayout
+        android:id="@+id/layoutSizes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toBottomOf="@id/tvDrinkName"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="S"
+            android:textSize="10sp"
+            android:textColor="#000000"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="2dp"
+            android:layout_marginEnd="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="M"
+            android:textSize="10sp"
+            android:textColor="#000000"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="2dp"
+            android:layout_marginEnd="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="L"
+            android:textSize="10sp"
+            android:textColor="#000000"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="2dp" />
+    </LinearLayout>
+
+    <!-- Giá tiền -->
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3$"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_marginStart="3dp"
+        app:layout_constraintTop_toBottomOf="@id/layoutSizes"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="3dp" />
+
+    <!-- Nút thêm-->
+    <ImageButton
+        android:id="@+id/btnAdd"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="3dp"
+        android:background="@drawable/btn_plus"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
