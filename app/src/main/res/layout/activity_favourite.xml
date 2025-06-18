@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="16dp"
     android:background="#FFFFFF">
@@ -9,7 +10,7 @@
     <!-- Thanh tìm kiếm -->
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:hint="Search..."
         android:drawableLeft="@drawable/ic_search"
         android:background="@drawable/edittext_background"
@@ -20,5 +21,6 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        tools:listitem="@layout/item_favourite"
         android:layout_marginTop="16dp" />
 </LinearLayout>
