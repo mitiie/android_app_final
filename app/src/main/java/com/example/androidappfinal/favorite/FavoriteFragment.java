@@ -1,4 +1,4 @@
-package com.example.androidappfinal;
+package com.example.androidappfinal.favorite;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.androidappfinal.R;
 
 public class FavoriteFragment extends Fragment {
     private EditText edtSearchFavourite;
