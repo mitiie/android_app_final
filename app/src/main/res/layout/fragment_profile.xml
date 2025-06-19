@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:paddingTop="150dp"
     android:paddingRight="70dp"
     android:paddingLeft="52dp">
 
-
+    <!-- Avatar -->
     <androidx.cardview.widget.CardView
         android:layout_width="91dp"
         android:layout_height="91dp"
@@ -22,11 +22,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="Profile Picture"
-            android:onClick="changeProfilePicture"
             android:src="@drawable/ic_profile"
             android:scaleType="centerCrop" />
     </androidx.cardview.widget.CardView>
 
+    <!-- Name + Edit -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,26 +42,30 @@
             android:text="Cristiano Ronaldo"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:textColor="@color/black"
             android:gravity="center" />
 
         <ImageView
+            android:id="@+id/profile_name_edit"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_gravity="end"
             android:contentDescription="Edit Name"
-            android:onClick="editName"
             android:src="@drawable/ic_edit" />
     </LinearLayout>
 
+    <!-- Settings Label -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="39dp"
         android:text="Settings"
+        android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold" />
 
+    <!-- Phone -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -81,18 +85,20 @@
             android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:text="+380483746375"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
 
         <ImageView
+            android:id="@+id/profile_phone_edit"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_gravity="end"
             android:contentDescription="Edit Phone"
-            android:onClick="editPhone"
             android:src="@drawable/ic_edit" />
     </LinearLayout>
 
+    <!-- Address -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -111,19 +117,21 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_weight="1"
+            android:textColor="@color/black"
             android:text="Ukraine, Ivano-Frankivsk, Kon..."
             android:textSize="16sp"
             android:textStyle="bold" />
 
         <ImageView
+            android:id="@+id/profile_address_edit"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_gravity="end"
             android:contentDescription="Edit Address"
-            android:onClick="editAddress"
             android:src="@drawable/ic_edit" />
     </LinearLayout>
 
+    <!-- My Cart -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -142,18 +150,20 @@
             android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:text="My Cart"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <ImageView
+            android:id="@+id/profile_cart_edit"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_gravity="end"
             android:contentDescription="Edit Cart"
-            android:onClick="editCart"
             android:src="@drawable/ic_edit" />
     </LinearLayout>
 
+    <!-- Logout -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -168,13 +178,13 @@
             android:contentDescription="Logout" />
 
         <TextView
+            android:id="@+id/logout_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Logout"
             android:textSize="18sp"
             android:textColor="#CB8A58"
-            android:layout_marginStart="10dp"
-            android:onClick="logout" />
+            android:layout_marginStart="10dp" />
     </LinearLayout>
 
 </LinearLayout>
