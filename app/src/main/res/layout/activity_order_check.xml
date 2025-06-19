@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2c2c2c">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_delivery"
+            android:contentDescription="Delivery Icon"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thank You For Your Order!"
+            android:textSize="22sp"
+            android:textColor="#d4a373"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wait For The Call"
+            android:textSize="20sp"
+            android:textColor="#d4a373"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_track_order"
+        android:layout_width="240dp"
+        android:layout_height="60dp"
+        android:text="Track Your Order"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:background="@drawable/bg_order_check"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp" />
+
+</RelativeLayout>
