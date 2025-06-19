@@ -28,5 +28,7 @@
             android:exported="true" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".TrackOrderAcitivity" />
+        <activity android:name=".TrackOrderStatusActivity" />
     </application>
 </manifest>
