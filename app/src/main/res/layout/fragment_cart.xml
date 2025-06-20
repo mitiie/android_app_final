@@ -25,8 +25,9 @@
         android:layout_marginEnd="20dp"
         android:contentDescription="Delivery Icon"
         android:src="@drawable/ic_carbon_delivery"
+        android:layout_marginBottom="-10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/tv_order_title" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_cart_items"

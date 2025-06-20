@@ -61,7 +61,7 @@
                 android:layout_height="0dp"
                 android:layout_marginBottom="24dp"
                 android:layout_weight="0.6"
-                android:background="@drawable/bg_category_button"
+                android:background="@drawable/bg_category_btn"
                 android:orientation="vertical"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
@@ -107,7 +107,7 @@
                 android:layout_weight="0.6"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
-                android:background="@drawable/bg_category_button"
+                android:background="@drawable/bg_category_btn"
                 android:orientation="vertical"
                 android:padding="10dp">
 
@@ -151,7 +151,7 @@
                 android:layout_weight="0.6"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
-                android:background="@drawable/bg_category_button"
+                android:background="@drawable/bg_category_btn"
                 android:orientation="vertical"
                 android:padding="10dp">
 
@@ -195,7 +195,7 @@
                 android:layout_marginBottom="5dp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
-                android:background="@drawable/bg_category_button"
+                android:background="@drawable/bg_category_btn"
                 android:orientation="vertical"
                 android:padding="10dp">
 

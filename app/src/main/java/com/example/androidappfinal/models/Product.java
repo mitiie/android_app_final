@@ -10,6 +10,7 @@ public class Product {
     private String description;
     private String imageUrl;
     private double price;
+    private String category;
     private List<String> sizes;
     private boolean isFavorite;
     private double rating;
@@ -79,6 +80,14 @@ public class Product {
 
     public void setSizes(List<String> sizes) {
         this.sizes = sizes;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     @PropertyName("isFavorite")
