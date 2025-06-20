@@ -1,6 +1,7 @@
 package com.example.androidappfinal.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.androidappfinal.R;
+import com.example.androidappfinal.home.ProductDetailActivity;
 import com.example.androidappfinal.models.Product;
 import com.google.firebase.database.FirebaseDatabase;
 import java.util.List;
@@ -19,7 +21,6 @@ import java.util.List;
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
     private Context context;
     private List<Product> productList;
-
     public ProductAdapter(Context context, List<Product> products) {
         this.context = context;
         this.productList = products;
@@ -75,6 +76,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         });
 
         displayProductSizes(holder.layoutSizes, product.getSizes());
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ProductDetailActivity.class);
+            intent.putExtra("product", product);
+            context.startActivity(intent);
+        });
+
     }
 
     private void updateFavoriteIcon(ProductViewHolder holder, boolean isFavorite) {

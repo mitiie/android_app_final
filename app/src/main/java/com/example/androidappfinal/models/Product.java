@@ -2,9 +2,10 @@ package com.example.androidappfinal.models;
 
 import com.google.firebase.database.PropertyName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Product {
+public class Product implements Serializable {
     private String id;
     private String name;
     private String description;

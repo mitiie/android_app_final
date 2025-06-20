@@ -30,5 +30,6 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".cart.TrackOrderAcitivity" />
         <activity android:name=".cart.TrackOrderStatusActivity" />
+        <activity android:name=".home.ProductDetailActivity" />
     </application>
 </manifest>
