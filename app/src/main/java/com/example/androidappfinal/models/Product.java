@@ -12,6 +12,7 @@ public class Product {
     private double price;
     private List<String> sizes;
     private boolean isFavorite;
+    private double rating;
 
     public Product() {}
 
@@ -63,6 +64,13 @@ public class Product {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
     }
 
     public List<String> getSizes() {
