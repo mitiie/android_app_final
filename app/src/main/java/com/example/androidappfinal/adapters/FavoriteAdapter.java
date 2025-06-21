@@ -1,6 +1,7 @@
 package com.example.androidappfinal.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.androidappfinal.R;
+import com.example.androidappfinal.home.ProductDetailActivity;
 import com.example.androidappfinal.models.Product;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.firebase.database.FirebaseDatabase;
@@ -65,6 +67,12 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.FavVie
                 .placeholder(R.drawable.image_product1)
                 .error(R.drawable.image_product2)
                 .into(holder.productImage);
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ProductDetailActivity.class);
+            intent.putExtra("product", product);
+            context.startActivity(intent);
+        });
 
         holder.favouriteIcon.setOnClickListener(v -> {
             int pos = holder.getAdapterPosition();
