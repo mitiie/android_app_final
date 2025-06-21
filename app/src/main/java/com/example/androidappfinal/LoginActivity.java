@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -47,6 +48,12 @@ public class LoginActivity extends AppCompatActivity {
 
         loginButton = findViewById(R.id.loginButton);
         loginButton.setOnClickListener(v -> loginUser());
+
+        TextView forgotPassword = findViewById(R.id.forgotPassword);
+        forgotPassword.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, RetrievePasswordActivity.class);
+            startActivity(intent);
+        });
     }
     private void loginUser() {
         String email = edtEmail.getText().toString().trim();

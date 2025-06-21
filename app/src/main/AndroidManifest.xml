@@ -27,6 +27,7 @@
             android:name=".LoginActivity"
             android:exported="true" />
         <activity android:name=".RegisterActivity" />
+        <activity android:name=".RetrievePasswordActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".cart.TrackOrderAcitivity" />
         <activity android:name=".cart.TrackOrderStatusActivity" />

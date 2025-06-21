@@ -43,6 +43,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/black"
+            android:layout_marginRight="8dp"
             android:gravity="center" />
 
         <ImageView
@@ -93,7 +94,7 @@
             android:id="@+id/profile_phone_edit"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_gravity="end"
+            android:layout_gravity="center"
             android:contentDescription="Edit Phone"
             android:src="@drawable/ic_edit" />
     </LinearLayout>
@@ -126,7 +127,7 @@
             android:id="@+id/profile_address_edit"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_gravity="end"
+            android:layout_gravity="center"
             android:contentDescription="Edit Address"
             android:src="@drawable/ic_edit" />
     </LinearLayout>
@@ -158,7 +159,7 @@
             android:id="@+id/profile_cart_edit"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_gravity="end"
+            android:layout_gravity="center"
             android:contentDescription="Edit Cart"
             android:src="@drawable/ic_edit" />
     </LinearLayout>
