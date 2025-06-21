@@ -93,6 +93,7 @@
                 android:layout_height="match_parent"
                 android:text="4.7"
                 android:textColor="#59000000"
+                android:textStyle="bold"
                 android:textSize="15sp"
                 android:gravity="center" />
         </LinearLayout>

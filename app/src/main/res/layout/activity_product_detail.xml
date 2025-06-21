@@ -174,7 +174,7 @@
     <Button
         android:id="@+id/btn_add_to_cart"
         android:layout_width="300dp"
-        android:layout_height="60dp"
+        android:layout_height="65dp"
         android:text="Add to Cart | 4$"
         android:textColor="#FFFFFF"
         android:textSize="22sp"

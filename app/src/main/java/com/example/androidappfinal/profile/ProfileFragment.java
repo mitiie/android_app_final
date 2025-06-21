@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.androidappfinal.LoginActivity;
 import com.example.androidappfinal.R;
+import com.example.androidappfinal.helpers.SessionManager;
 
 public class ProfileFragment extends Fragment {
 
@@ -108,6 +109,8 @@ public class ProfileFragment extends Fragment {
         AlertDialog dialog = builder.create();
 
         btnYes.setOnClickListener(v -> {
+            SessionManager sessionManager = new SessionManager(getContext());
+            sessionManager.logout();
             Intent intent = new Intent(getContext(), LoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
