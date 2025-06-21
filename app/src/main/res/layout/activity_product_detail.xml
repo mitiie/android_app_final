@@ -123,7 +123,7 @@
             android:layout_height="wrap_content"
             android:text="Small"
             android:layout_marginStart="24dp"
-            android:backgroundTint="#846046"
+            android:backgroundTint="#A9A9A9"
             android:textColor="#FFFFFF" />
 
         <Button

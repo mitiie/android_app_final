@@ -1,53 +1,122 @@
 package com.example.androidappfinal.home;
 
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.bumptech.glide.Glide;
 import com.example.androidappfinal.R;
 import com.example.androidappfinal.models.Product;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class ProductDetailActivity extends AppCompatActivity {
+    private Button btnSmall, btnMedium, btnLarge, btnAddToCart;
+    private ImageButton btnFavorite;
+    private TextView tvName, tvRating, tvDescription;
+    private ImageView imgProduct;
+
+    private double selectedPrice = 0;
+    private Product product;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_product_detail);
 
-        Product product = (Product) getIntent().getSerializableExtra("product");
-
-        if (product != null) {
-            ImageView imgProduct = findViewById(R.id.product_image);
-            TextView tvName = findViewById(R.id.product_name);
-            TextView tvRating = findViewById(R.id.productRating);
-            TextView tvDescription = findViewById(R.id.product_description);
-            Button btnAddToCart = findViewById(R.id.btn_add_to_cart);
-            ImageButton btnFavorite = findViewById(R.id.btnFavorite);
-
-            Glide.with(this)
-                    .load(product.getImageUrl())
-                    .placeholder(R.drawable.image_product1)
-                    .error(R.drawable.image_product2)
-                    .into(imgProduct);
-
-            tvName.setText(product.getName());
-            tvRating.setText(String.valueOf(product.getRating()));
-            tvDescription.setText(product.getDescription());
-
-            String buttonText = "Add to Cart | " + String.format("%.2f", product.getPrice()) + "$";
-            btnAddToCart.setText(buttonText);
-
-            btnFavorite.setImageResource(product.isFavorite()
-                    ? R.drawable.ic_favorite
-                    : R.drawable.ic_fav_deselect);
+        product = (Product) getIntent().getSerializableExtra("product");
+        if (product == null) {
+            finish();
+            return;
         }
+
+        setupViews();
+        bindProductData();
+        setupFavoriteButton();
+        setupSizeButtons();
+
+        selectedPrice = product.getPrice();
+        highlightSize(btnSmall);
+        updateAddToCartButtonText();
+    }
+
+    private void setupViews() {
+        imgProduct = findViewById(R.id.product_image);
+        tvName = findViewById(R.id.product_name);
+        tvRating = findViewById(R.id.productRating);
+        tvDescription = findViewById(R.id.product_description);
+        btnAddToCart = findViewById(R.id.btn_add_to_cart);
+        btnFavorite = findViewById(R.id.btnFavorite);
+        btnSmall = findViewById(R.id.small_size);
+        btnMedium = findViewById(R.id.medium_size);
+        btnLarge = findViewById(R.id.large_size);
+    }
+
+    private void bindProductData() {
+        Glide.with(this)
+                .load(product.getImageUrl())
+                .placeholder(R.drawable.image_product1)
+                .error(R.drawable.image_product2)
+                .into(imgProduct);
+
+        tvName.setText(product.getName());
+        tvRating.setText(String.valueOf(product.getRating()));
+        tvDescription.setText(product.getDescription());
+        updateFavoriteIcon(product.isFavorite());
+    }
+
+    private void setupFavoriteButton() {
+        btnFavorite.setOnClickListener(v -> {
+            boolean newStatus = !product.isFavorite();
+            product.setFavorite(newStatus);
+            updateFavoriteIcon(newStatus);
+
+            FirebaseDatabase.getInstance()
+                    .getReference("products")
+                    .child(product.getId())
+                    .child("isFavorite")
+                    .setValue(newStatus);
+        });
+    }
+
+    private void setupSizeButtons() {
+        btnSmall.setOnClickListener(v -> {
+            highlightSize(btnSmall);
+            selectedPrice = product.getPrice();
+            updateAddToCartButtonText();
+        });
+
+        btnMedium.setOnClickListener(v -> {
+            highlightSize(btnMedium);
+            selectedPrice = product.getPrice() + 1.0;
+            updateAddToCartButtonText();
+        });
+
+        btnLarge.setOnClickListener(v -> {
+            highlightSize(btnLarge);
+            selectedPrice = product.getPrice() + 1.5;
+            updateAddToCartButtonText();
+        });
+    }
+    private void highlightSize(Button selectedButton) {
+        int gray = Color.parseColor("#A9A9A9");
+        btnSmall.setBackgroundTintList(ColorStateList.valueOf(gray));
+        btnMedium.setBackgroundTintList(ColorStateList.valueOf(gray));
+        btnLarge.setBackgroundTintList(ColorStateList.valueOf(gray));
+
+        int brown = Color.parseColor("#846046");
+        selectedButton.setBackgroundTintList(ColorStateList.valueOf(brown));
+    }
+    private void updateAddToCartButtonText() {
+        btnAddToCart.setText("Add to Cart    |    " + String.format("$%.2f", selectedPrice));
+    }
+    private void updateFavoriteIcon(boolean isFavorite) {
+        int iconRes = isFavorite ? R.drawable.ic_favorite : R.drawable.ic_fav_deselect;
+        btnFavorite.setImageResource(iconRes);
     }
 }
