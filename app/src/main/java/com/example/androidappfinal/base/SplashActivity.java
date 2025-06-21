@@ -1,8 +1,11 @@
-package com.example.androidappfinal;
+package com.example.androidappfinal.base;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.androidappfinal.R;
+import com.example.androidappfinal.authenticate.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity {
     @Override

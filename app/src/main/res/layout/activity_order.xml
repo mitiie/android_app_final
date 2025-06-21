@@ -166,29 +166,34 @@
         android:id="@+id/tv_total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-35dp"
+        android:layout_marginTop="16dp"
         android:text="Total: 14$"
-        android:textSize="16sp"
+        android:textSize="18sp"
+        android:textColor="#CD1B1B"
         android:textStyle="bold"
-        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="26dp"
         app:layout_constraintEnd_toEndOf="@+id/payment_selector"
-        app:layout_constraintBottom_toTopOf="@id/btn_go_to_cart" />
+        app:layout_constraintBottom_toTopOf="@id/btn_creat_order" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_go_to_cart"
+        android:id="@+id/btn_creat_order"
         android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:background="@drawable/bg_create_order"
+        android:layout_height="56dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="65dp"
+        android:background="@drawable/bg_go_to_cart"
         android:drawableEnd="@drawable/ic_arrow"
         android:drawablePadding="120dp"
         android:gravity="center"
         android:paddingEnd="28dp"
-        android:text="Create Order"
-        android:textAllCaps="false"
+        android:text="Create Order .."
         android:textColor="@android:color/white"
-        android:textSize="19sp"
+        android:textSize="19dp"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

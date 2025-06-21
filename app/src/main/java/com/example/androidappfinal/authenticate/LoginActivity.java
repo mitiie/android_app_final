@@ -1,4 +1,4 @@
-package com.example.androidappfinal;
+package com.example.androidappfinal.authenticate;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,9 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.androidappfinal.base.MainActivity;
+import com.example.androidappfinal.R;
 import com.example.androidappfinal.helpers.SessionManager;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

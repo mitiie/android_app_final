@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.androidappfinal.MainActivity;
+import com.example.androidappfinal.base.MainActivity;
 import com.example.androidappfinal.R;
 import com.example.androidappfinal.helpers.SessionManager;
 

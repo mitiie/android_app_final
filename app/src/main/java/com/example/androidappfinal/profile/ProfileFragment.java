@@ -11,7 +11,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-import com.example.androidappfinal.LoginActivity;
+import com.example.androidappfinal.authenticate.LoginActivity;
 import com.example.androidappfinal.R;
 import com.example.androidappfinal.helpers.SessionManager;
 import com.example.androidappfinal.models.User;

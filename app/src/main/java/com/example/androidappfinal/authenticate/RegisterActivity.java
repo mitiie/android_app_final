@@ -1,4 +1,4 @@
-package com.example.androidappfinal;
+package com.example.androidappfinal.authenticate;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.androidappfinal.base.MainActivity;
+import com.example.androidappfinal.R;
 import com.example.androidappfinal.helpers.SessionManager;
 import com.example.androidappfinal.models.User;
 import com.google.firebase.database.FirebaseDatabase;

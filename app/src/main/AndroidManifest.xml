@@ -15,7 +15,7 @@
         android:theme="@style/Theme.AndroidAppFinal"
         tools:targetApi="31">
         <activity
-            android:name=".SplashActivity"
+            android:name=".base.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,11 +24,11 @@
         </activity>
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".authenticate.LoginActivity"
             android:exported="true" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".RetrievePasswordActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".authenticate.RegisterActivity" />
+        <activity android:name=".authenticate.RetrievePasswordActivity" />
+        <activity android:name=".base.MainActivity" />
         <activity android:name=".cart.TrackOrderAcitivity" />
         <activity android:name=".cart.TrackOrderStatusActivity" />
         <activity android:name=".home.ProductDetailActivity" />

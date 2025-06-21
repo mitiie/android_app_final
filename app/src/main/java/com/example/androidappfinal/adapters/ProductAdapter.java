@@ -10,12 +10,22 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.androidappfinal.R;
+import com.example.androidappfinal.helpers.SessionManager;
 import com.example.androidappfinal.home.ProductDetailActivity;
+import com.example.androidappfinal.models.Cart;
 import com.example.androidappfinal.models.Product;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
@@ -52,6 +62,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public void onBindViewHolder(ProductViewHolder holder, int position) {
         Product product = productList.get(position);
 
+        bindProductData(holder, product);
+        handleFavoriteToggle(holder, product);
+        setupItemClick(holder, product);
+        btnAddTapped(holder, product);
+        addToCart(holder, product);
+    }
+
+    private void bindProductData(ProductViewHolder holder, Product product) {
         holder.tvDrinkName.setText(product.getName());
         holder.tvPrice.setText(String.format("$ %.2f", product.getPrice()));
 
@@ -62,29 +80,87 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 .into(holder.imgDrink);
 
         updateFavoriteIcon(holder, product.isFavorite());
+        displayProductSizes(holder.layoutSizes, product.getSizes());
+    }
 
+    private void handleFavoriteToggle(ProductViewHolder holder, Product product) {
         holder.btnFavorite.setOnClickListener(v -> {
-            boolean newFavoriteStatus = !product.isFavorite();
-            product.setFavorite(newFavoriteStatus);
-            updateFavoriteIcon(holder, newFavoriteStatus);
+            boolean newStatus = !product.isFavorite();
+            product.setFavorite(newStatus);
+            updateFavoriteIcon(holder, newStatus);
 
             FirebaseDatabase.getInstance()
                     .getReference("products")
                     .child(product.getId())
                     .child("isFavorite")
-                    .setValue(newFavoriteStatus);
+                    .setValue(newStatus);
         });
+    }
 
-        displayProductSizes(holder.layoutSizes, product.getSizes());
-
+    private void btnAddTapped(ProductViewHolder holder, Product product) {
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ProductDetailActivity.class);
             intent.putExtra("product", product);
             context.startActivity(intent);
         });
-
     }
 
+    private void setupItemClick(ProductViewHolder holder, Product product) {
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ProductDetailActivity.class);
+            intent.putExtra("product", product);
+            context.startActivity(intent);
+        });
+    }
+
+    private void addToCart(ProductViewHolder holder, Product product) {
+        holder.btnAdd.setOnClickListener(v -> {
+            String userId = new SessionManager(context).getUserId();
+            if (userId == null) {
+                Toast.makeText(context, "Please login first", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            double price = product.getPrice();
+
+            DatabaseReference cartRef = FirebaseDatabase.getInstance()
+                    .getReference("carts")
+                    .child(userId)
+                    .child(product.getId());
+
+            cartRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    int quantity = 1;
+                    if (snapshot.exists()) {
+                        Cart existing = snapshot.getValue(Cart.class);
+                        if (existing != null) {
+                            quantity = existing.getQuantity() + 1;
+                        }
+                    }
+
+                    Cart cartItem = new Cart(
+                            product.getId(),
+                            product.getName(),
+                            price,
+                            null,
+                            quantity,
+                            product.getImageUrl(),
+                            product.getRating()
+                    );
+
+                    cartRef.setValue(cartItem)
+                            .addOnSuccessListener(aVoid -> Toast.makeText(context, "Product added to cart", Toast.LENGTH_SHORT).show())
+                            .addOnFailureListener(e -> Toast.makeText(context, "Failed to add to cart", Toast.LENGTH_SHORT).show());
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(context, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        });
+    }
     private void updateFavoriteIcon(ProductViewHolder holder, boolean isFavorite) {
         int iconRes = isFavorite ? R.drawable.ic_favorite : R.drawable.ic_fav_deselect;
         holder.btnFavorite.setImageResource(iconRes);

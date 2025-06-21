@@ -1,9 +1,10 @@
-package com.example.androidappfinal;
+package com.example.androidappfinal.base;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.androidappfinal.R;
 import com.example.androidappfinal.cart.CartFragment;
 import com.example.androidappfinal.favorite.FavoriteFragment;
 import com.example.androidappfinal.home.HomeFragment;
