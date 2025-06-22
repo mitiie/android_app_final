@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.androidappfinal.R;
 
-public class TrackOrderAcitivity  extends AppCompatActivity {
+public class TrackOrderActivity extends AppCompatActivity {
     private Button btnTrackOrder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class TrackOrderAcitivity  extends AppCompatActivity {
     private void setupUI(){
         btnTrackOrder = findViewById(R.id.button_track_order);
         btnTrackOrder.setOnClickListener(v -> {
-            Intent intent = new Intent(TrackOrderAcitivity.this, TrackOrderStatusActivity.class);
+            Intent intent = new Intent(TrackOrderActivity.this, TrackOrderStatusActivity.class);
             startActivity(intent);
         });
     }

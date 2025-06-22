@@ -103,7 +103,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
-            android:id="@+id/layout_apple_pay"
+            android:id="@+id/layout_cash_pay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -113,7 +113,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/ic_cash"
-                android:contentDescription="Apple Pay" />
+                android:contentDescription="Cash" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -128,14 +128,15 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/ic_down_arrow"
-                android:contentDescription="Apple Pay" />
+                android:contentDescription="Cash" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout_other_payments"
+            android:id="@+id/layout_bank_transfer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:visibility="gone"
             android:layout_marginTop="12dp">
 
             <LinearLayout
@@ -148,12 +149,12 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_visa"
-                    android:contentDescription="Visa/MasterCard" />
+                    android:contentDescription="Bank Transfer" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Visa / MasterCard"
+                    android:text="Bank Transfer"
                     android:textSize="16sp"
                     android:textColor="@color/black"
                     android:layout_marginStart="12dp" />
