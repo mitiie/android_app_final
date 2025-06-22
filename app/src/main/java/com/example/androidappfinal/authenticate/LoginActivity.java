@@ -10,7 +10,6 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.androidappfinal.base.MainActivity;
 import com.example.androidappfinal.R;
 import com.example.androidappfinal.helpers.SessionManager;
@@ -77,20 +76,14 @@ public class LoginActivity extends AppCompatActivity {
                             String dbPassword = userSnapshot.child("password").getValue(String.class);
 
                             if (email.equals(dbEmail) && password.equals(dbPassword)) {
-                                String role = userSnapshot.child("role").getValue(String.class);
+                                String userId = userSnapshot.getKey();
+                                SessionManager sessionManager = new SessionManager(LoginActivity.this);
+                                sessionManager.createLoginSession(userId);
+
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(intent);
+                                finish();
                                 found = true;
-
-                                if ("customer".equals(role)) {
-                                    String userId = userSnapshot.getKey();
-                                    SessionManager sessionManager = new SessionManager(LoginActivity.this);
-                                    sessionManager.createLoginSession(userId);
-
-                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                    startActivity(intent);
-                                    finish();
-                                } else {
-                                    Toast.makeText(LoginActivity.this, "Unknown user role.", Toast.LENGTH_SHORT).show();
-                                }
                                 break;
                             }
                         }
@@ -99,7 +92,6 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this, "Incorrect email or password.", Toast.LENGTH_SHORT).show();
                         }
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
                         Log.e("LOGIN_ERROR", "Login failed: " + error.getMessage());

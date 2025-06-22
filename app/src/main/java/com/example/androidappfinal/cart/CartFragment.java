@@ -14,8 +14,6 @@ import android.widget.TextView;
 import android.widget.Button;
 import com.example.androidappfinal.R;
 import com.example.androidappfinal.adapters.CartAdapter;
-import com.example.androidappfinal.authenticate.LoginActivity;
-import com.example.androidappfinal.authenticate.RegisterActivity;
 import com.example.androidappfinal.models.Cart;
 import com.example.androidappfinal.helpers.SessionManager;
 import com.google.firebase.database.DataSnapshot;
