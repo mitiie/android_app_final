@@ -2,9 +2,11 @@ package com.example.androidappfinal.authenticate;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
@@ -23,6 +25,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginButton;
     private EditText edtPassword;
     private EditText edtEmail;
+    private ImageView eyeToggle;
+    private boolean isPasswordVisible = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,19 @@ public class LoginActivity extends AppCompatActivity {
         setupUI();
     }
     private void setupUI() {
+        eyeToggle = findViewById(R.id.eyeToggle);
+        eyeToggle.setOnClickListener(v -> {
+            if (isPasswordVisible) {
+                edtPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                eyeToggle.setImageResource(R.drawable.ic_eye);
+            } else {
+                edtPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                eyeToggle.setImageResource(R.drawable.ic_eye_open);
+            }
+            edtPassword.setSelection(edtPassword.getText().length());
+            isPasswordVisible = !isPasswordVisible;
+        });
+
         edtEmail = findViewById(R.id.emailInput);
         edtPassword = findViewById(R.id.passwordInput);
         registerButton = findViewById(R.id.registerButton);

@@ -15,7 +15,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.UUID;
 
 public class RegisterActivity extends AppCompatActivity {
-
     private EditText emailInput, passwordInput, confirmPasswordInput;
     private TextView loginLink, registerButton;
 

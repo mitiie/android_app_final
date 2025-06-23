@@ -14,7 +14,6 @@ import com.example.androidappfinal.R;
 import com.example.androidappfinal.models.Cart;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {

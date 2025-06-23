@@ -22,7 +22,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class ProfileFragment extends Fragment {
-
     private ImageView profileImage;
     private TextView profileName, profilePhone, profileAddress;
     private ActivityResultLauncher<Intent> pickImageLauncher;

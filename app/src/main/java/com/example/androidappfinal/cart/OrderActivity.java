@@ -3,7 +3,6 @@ package com.example.androidappfinal.cart;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -14,7 +13,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.example.androidappfinal.R;
 import com.example.androidappfinal.adapters.CartAdapter;
@@ -22,7 +20,6 @@ import com.example.androidappfinal.helpers.SessionManager;
 import com.example.androidappfinal.models.Cart;
 import com.example.androidappfinal.models.User;
 import com.google.firebase.database.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
